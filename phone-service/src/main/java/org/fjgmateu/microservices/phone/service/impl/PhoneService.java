@@ -53,5 +53,13 @@ public class PhoneService implements IPhoneService {
                 .collect(Collectors.toList());
     }
 
+    public String add(PhoneDTO input) {
+        logger.info("PhoneService.add, input: " + input);
+        Phone phone=modelMapper.map(input, Phone.class);
+        phoneRepository.save(phone);
+        logger.info("Phone creada, reference: " + phone.getReference());
+        return phone.getReference();
+    }
+
 
 }

@@ -10,12 +10,10 @@ targetCompatibility = 1.8
 repositories {
     mavenCentral()
     jcenter()
+    maven { url 'https://repo.spring.io/libs-snapshot' }
 }
 
 buildscript {
-
-
-	
     ext {
         springBootVersion = '1.5.2.RELEASE'
     }
@@ -23,6 +21,7 @@ buildscript {
     repositories {
         mavenCentral()
 	    jcenter()
+        maven { url 'https://repo.spring.io/libs-snapshot' }
     }
 
     dependencies {
@@ -60,11 +59,6 @@ dependencies {
 
 
 }
-
-repositories {
-    maven { url 'https://repo.spring.io/libs-snapshot' }
-}
-
 
 
 bootRun {
