@@ -15,7 +15,7 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 
 @SpringBootApplication
-@EnableEurekaClient
+@EnableDiscoveryClient
 @EnableAutoConfiguration
 @ComponentScan("org.fjgmateu.microservices.order")
 @EnableMongoRepositories("org.fjgmateu.microservices.order.repository")
