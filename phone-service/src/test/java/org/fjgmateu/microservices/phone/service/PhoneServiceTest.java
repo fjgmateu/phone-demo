@@ -1,83 +1,50 @@
-package org.fjgmateu.microservices.service.impl;
+package org.fjgmateu.microservices.phone.service;
 
-import org.fjgmateu.microservices.service.config.PhoneServiceApplication;
-import org.fjgmateu.microservices.service.domain.api.CarrierSuccessRequest;
-import org.fjgmateu.microservices.service.domain.api.Parcel;
+import org.fjgmateu.microservices.phone.config.PhoneApplication;
+import org.fjgmateu.microservices.phone.dto.PhoneDTO;
+import org.fjgmateu.microservices.phone.entity.Phone;
+import org.fjgmateu.microservices.phone.service.impl.PhoneService;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import org.springframework.test.context.junit4.SpringRunner;
-import java.util.ArrayList;
-import java.util.List;
-
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.apache.commons.lang3.RandomStringUtils.randomAlphabetic;
+import static org.junit.Assert.assertEquals;
 
 /**
  *  FJGMATEU
  */
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = PhoneServiceApplication.class)
+@SpringBootTest(classes = PhoneApplication.class)
 public class PhoneServiceTest {
 
     @Autowired
-    private PhoneService PhoneService;
+    private PhoneService phoneService;
 
 
-    @Test
-    public void carrier_Event_Success_With_Phone() {
-        CarrierSuccessRequest input=new CarrierSuccessRequest ();
-        input.setPacklinkReference("ABCD123456");
-        input.setCarrier("UPS");
-        input.setIntegrationCode("UPS_ES_A");
-        input.setServiceId("28123");
-
-        Parcel parcel=new Parcel();
-        parcel.setWeight(0.5);
-        parcel.setWidth(10);
-        parcel.setHeight(10);
-        parcel.setLenght(10);
-        List<Parcel> parcels=new ArrayList<Parcel>();
-        parcels.add(parcel);
-
-        List<String> tracking=new ArrayList<String>();
-        tracking.add("XYZ123");
-        input.setTrackingNumbers(tracking);
-        input.setParcels(parcels);
-
-        assertTrue ( PhoneService.carrierSuccess(input));
-
-    }
-
+    private ModelMapper modelMapper = new ModelMapper();
 
     @Test
-    public void carrier_Event_Success_With_Not_Phone() {
-        CarrierSuccessRequest input=new CarrierSuccessRequest ();
-        input.setPacklinkReference("ABCD123456");
-        input.setCarrier("UPS");
-        input.setIntegrationCode("UPS_ES_A");
-        input.setServiceId("28123");
+    public void whenConvertPhoneEntityToPhoneDTO_thenCorrect() {
+        Phone phone = new Phone();
+        phone.setReference(randomAlphabetic(10));
+        phone.setName(randomAlphabetic(6));
+        phone.setDescription(randomAlphabetic(20));
+        phone.setPrice(345.66);
+        phone.setUrlImage("www.test.com");
 
-        Parcel parcel=new Parcel();
-        parcel.setWeight(100);
-        parcel.setWidth(10);
-        parcel.setHeight(10);
-        parcel.setLenght(10);
-        List<Parcel> parcels=new ArrayList<Parcel>();
-        parcels.add(parcel);
-
-        List<String> tracking=new ArrayList<String>();
-        tracking.add("XYZ123");
-        input.setTrackingNumbers(tracking);
-        input.setParcels(parcels);
-
-        assertFalse(PhoneService.carrierSuccess(input));
-
+        PhoneDTO phoneDTO = modelMapper.map(phone, PhoneDTO.class);
+        assertEquals(phone.getReference(), phoneDTO.getReference());
+        assertEquals(phone.getName(), phoneDTO.getName());
+        assertEquals(phone.getDescription(), phoneDTO.getDescription());
+        assertEquals(phone.getPrice(), phoneDTO.getPrice());
+        assertEquals(phone.getUrlImage(), phoneDTO.getUrlImage());
     }
 
-    // write test cases here
+        // write test cases here
 }

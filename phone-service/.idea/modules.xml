@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/phone-service.iml" filepath="$PROJECT_DIR$/phone-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/phone-service_main.iml" filepath="$PROJECT_DIR$/.idea/modules/phone-service_main.iml" group="phone-service" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/phone-service_test.iml" filepath="$PROJECT_DIR$/.idea/modules/phone-service_test.iml" group="phone-service" />
     </modules>
   </component>
 </project>

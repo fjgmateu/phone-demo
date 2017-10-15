@@ -1,27 +1,26 @@
-package org.fjgmateu.microservices.api.config;
+package org.fjgmateu.microservices.phone.config;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.google.gson.Gson;
-import org.fjgmateu.microservices.service.config.PhoneServiceApplication;
+import org.modelmapper.ModelMapper;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Import;
+import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 
 @SpringBootApplication
 @EnableAutoConfiguration
 @ComponentScan("org.fjgmateu.microservices.phone")
 @EnableMongoRepositories("org.fjgmateu.microservices.phone.repository")
-public class PhoneApiApplication {
+public class PhoneApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(PhoneApiApplication.class, args);
+        SpringApplication.run(PhoneApplication.class, args);
     }
 
     @Bean

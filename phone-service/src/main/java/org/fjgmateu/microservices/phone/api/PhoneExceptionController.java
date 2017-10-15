@@ -1,9 +1,10 @@
-package org.fjgmateu.microservices.api;
+package org.fjgmateu.microservices.phone.api;
 
 
-import org.fjgmateu.microservices.exception.ServiceDataException;
-import org.fjgmateu.microservices.exception.ServiceException;
+import org.fjgmateu.microservices.phone.exception.ServiceDataException;
+import org.fjgmateu.microservices.phone.exception.ServiceException;
 
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,9 +19,9 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
  * Created by FJGMATEU
  */
 @ControllerAdvice
-public class PhoneExceptionHandler extends ResponseEntityExceptionHandler {
+public class PhoneExceptionController extends ResponseEntityExceptionHandler {
 
-    public PhoneExceptionHandler() {
+    public PhoneExceptionController() {
         super();
     }
 

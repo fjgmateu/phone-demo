@@ -1,6 +1,6 @@
-package org.fjgmateu.microservices.data.repository;
+package org.fjgmateu.microservices.phone.repository;
 
-import org.fjgmateu.microservices.data.domain.Phone;
+import org.fjgmateu.microservices.phone.entity.Phone;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import java.util.List;
 

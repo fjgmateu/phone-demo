@@ -7,6 +7,11 @@ apply plugin: "io.spring.dependency-management"
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
 buildscript {
 
 
@@ -44,7 +49,7 @@ dependencies {
     compile("com.google.code.gson:gson:2.6.2")
     compile group: 'log4j', name: 'log4j', version: '1.2.17'
     compile group: 'org.modelmapper', name: 'modelmapper', version: '1.1.0'
-
+    compile("org.springframework.boot:spring-boot-starter-data-mongodb")
 
     testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test'
     testCompile group: 'org.springframework.security', name: 'spring-security-test'

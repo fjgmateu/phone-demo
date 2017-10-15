@@ -1,7 +1,9 @@
 package org.fjgmateu.microservices.phone.service.impl;
 
+import org.fjgmateu.microservices.phone.exception.ServiceDataException;
 import org.fjgmateu.microservices.phone.repository.PhoneRepository;
 import org.fjgmateu.microservices.phone.service.IPhoneService;
+import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +13,8 @@ import org.fjgmateu.microservices.phone.dto.PhoneDTO;
 import org.fjgmateu.microservices.phone.entity.Phone;
 
 import java.util.List;
+import java.util.stream.Collectors;
+import org.springframework.util.CollectionUtils;
 
 /**
  * Created by FJGMATEU
@@ -36,10 +40,11 @@ public class PhoneService implements IPhoneService {
         return modelMapper.map(phone, PhoneDTO.class);
     }
 
-    public List<Phone> findAll () {
+    public List<PhoneDTO> findAll () {
        logger.info("PhoneService.findAll");
        List<Phone> phones= phoneRepository.findAll();
-        if (CollectionUtils.isEmpty(phones)){
+        if (CollectionUtils
+                .isEmpty(phones)){
             throw new ServiceDataException("No se han encontrado datos");
         }
 

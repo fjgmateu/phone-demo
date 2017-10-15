@@ -1,4 +1,4 @@
-package org.fjgmateu.microservices.phone.entity.domain;
+package org.fjgmateu.microservices.phone.entity;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
