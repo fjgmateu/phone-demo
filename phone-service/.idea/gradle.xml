@@ -4,6 +4,12 @@
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
         <option name="distributionType" value="LOCAL" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/../eureka-server" />
+        <option name="gradleHome" value="C:/Gradle/gradle-4.2.1" />
+        <option name="useAutoImport" value="true" />
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="LOCAL" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/../order-service" />
         <option name="gradleHome" value="C:/Gradle/gradle-4.2.1" />
         <option name="gradleJvm" value="#JAVA_HOME" />

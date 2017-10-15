@@ -44,6 +44,7 @@ configurations {
 dependencies {
     compile group: 'org.springframework', name: 'spring-core'
     compile("org.springframework.boot:spring-boot-starter-web:${springBootVersion}")
+    compile('org.springframework.cloud:spring-cloud-starter-eureka')
     compile group: 'javax.ws.rs', name: 'javax.ws.rs-api', version: '2.0.1'
     compile("org.apache.commons:commons-lang3:3.4")
     compile("com.google.code.gson:gson:2.6.2")
@@ -58,16 +59,18 @@ dependencies {
 
 }
 
+repositories {
+    maven { url 'https://repo.spring.io/libs-snapshot' }
+}
+
+
 
 bootRun {
     systemProperties = System.properties
     doFirst {
         def url = "https://raw.githubusercontent.com/fjgmateu/configuration/master/" + rootProject.name + "/" + profile + ".json"
-
         //println url
         def properties = url.toURL().getText()
-
-        //def properties =new File("C:\\prueba\\" + profile + ".json").getText()
         println properties
         environment 'SPRING_APPLICATION_JSON', properties
     }
@@ -78,11 +81,8 @@ test {
     systemProperties = System.properties
     doFirst {
         def url = "https://raw.githubusercontent.com/fjgmateu/configuration/master/" + rootProject.name + "/" + profile + ".json"
-
         //println url
         def properties = url.toURL().getText()
-
-        //def properties =new File("C:\\prueba\\" + profile + ".json").getText()
         println properties
         environment 'SPRING_APPLICATION_JSON', properties
     }

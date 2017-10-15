@@ -19,6 +19,10 @@ public class PhoneController {
     private IPhoneService phoneService;
 
 
+    @RequestMapping("/")
+    public String home() {
+        return "Hello world";
+    }
     @CrossOrigin
     @RequestMapping(value = "/phone/{reference}", method = RequestMethod.GET)
     public PhoneDTO find(@PathVariable("reference") String reference) {

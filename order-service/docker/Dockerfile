@@ -1,8 +1,10 @@
-MAINTAINER ETICA SATELITES <etica.satelites@asefa.es>
+FROM java:8
 
-EXPOSE  8090 443
+MAINTAINER FJGMATEU <frangarmateu@gmail.com>
 
-ENV application "docker-service"
+EXPOSE  8092 443
+
+ENV application "order-service"
 
 ADD service.sh /opt/service/
 RUN chmod 0600 /opt/service/service.sh

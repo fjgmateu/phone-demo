@@ -30,8 +30,8 @@ public class PhoneServiceClient implements IPhoneServiceClient{
 
     private final Logger logger = LoggerFactory.getLogger(PhoneServiceClient.class);
 
-    @Value("${endpoint.phone.find}")
-    private String endPointPhoneFind;
+    @Value("${endpoint.phone.findall}")
+    private String endPointPhoneFindAll;
 
     @Autowired
     private RestTemplate restTemplate;
@@ -41,7 +41,7 @@ public class PhoneServiceClient implements IPhoneServiceClient{
         List<PhoneDTO> phones = null;
         try {
             PhoneDTO[] response=restTemplate.getForObject(
-                    endPointPhoneFind, PhoneDTO[].class);
+                    endPointPhoneFindAll, PhoneDTO[].class);
             if (response==null){
                 throw new ServiceClientException("No existen teléfonos en el catálogo");
             }

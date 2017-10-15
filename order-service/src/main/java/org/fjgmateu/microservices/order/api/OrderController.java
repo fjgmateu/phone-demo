@@ -21,6 +21,10 @@ public class OrderController {
     @Autowired
     private IOrderService orderService;
 
+    @RequestMapping("/")
+    public String home() {
+        return "Hello world";
+    }
 
     @CrossOrigin
     @RequestMapping(value = "/order/{reference}", method = RequestMethod.GET)

@@ -2,9 +2,9 @@ FROM java:8
 
 MAINTAINER FJGMATEU <frangarmateu@gmail.com>
 
-EXPOSE  8091 443
+EXPOSE  8761 443
 
-ENV application "phone-service"
+ENV application "eureka-server"
 
 ADD service.sh /opt/service/
 RUN chmod 0600 /opt/service/service.sh
