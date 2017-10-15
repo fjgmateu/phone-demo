@@ -1,0 +1,89 @@
+group 'org.fjgmateu.microservices'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'org.springframework.boot'
+apply plugin: "io.spring.dependency-management"
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+buildscript {
+
+
+	
+    ext {
+        springBootVersion = '1.5.2.RELEASE'
+    }
+
+    repositories {
+        mavenCentral()
+	    jcenter()
+    }
+
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath("io.spring.gradle:dependency-management-plugin:0.6.0.RELEASE")
+    }
+}
+
+jar {
+
+    baseName = rootProject.name
+}
+
+
+configurations {
+    providedRuntime
+}
+
+dependencies {
+    compile group: 'org.springframework', name: 'spring-core'
+    compile("org.springframework.boot:spring-boot-starter-web:${springBootVersion}")
+    compile group: 'javax.ws.rs', name: 'javax.ws.rs-api', version: '2.0.1'
+    compile("org.apache.commons:commons-lang3:3.4")
+    compile("com.google.code.gson:gson:2.6.2")
+    compile group: 'log4j', name: 'log4j', version: '1.2.17'
+    compile group: 'org.modelmapper', name: 'modelmapper', version: '1.1.0'
+    compile("org.springframework.boot:spring-boot-starter-data-mongodb")
+
+    testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test'
+    testCompile group: 'org.springframework.security', name: 'spring-security-test'
+    testCompile group: 'junit', name: 'junit'
+
+
+}
+
+
+bootRun {
+    systemProperties = System.properties
+    doFirst {
+        def url = "https://raw.githubusercontent.com/fjgmateu/configuration/master/" + rootProject.name + "/" + profile + ".json"
+
+        //println url
+        def properties = url.toURL().getText()
+
+        //def properties =new File("C:\\prueba\\" + profile + ".json").getText()
+        println properties
+        environment 'SPRING_APPLICATION_JSON', properties
+    }
+}
+
+
+test {
+    systemProperties = System.properties
+    doFirst {
+        def url = "https://raw.githubusercontent.com/fjgmateu/configuration/master/" + rootProject.name + "/" + profile + ".json"
+
+        //println url
+        def properties = url.toURL().getText()
+
+        //def properties =new File("C:\\prueba\\" + profile + ".json").getText()
+        println properties
+        environment 'SPRING_APPLICATION_JSON', properties
+    }
+}

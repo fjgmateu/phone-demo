@@ -1,8 +1,8 @@
-package org.fjgmateu.microservices.phone.api;
+package org.fjgmateu.microservices.order.api;
 
 
-import org.fjgmateu.microservices.phone.exception.ServiceDataException;
-import org.fjgmateu.microservices.phone.exception.ServiceException;
+import org.fjgmateu.microservices.order.exception.ServiceDataException;
+import org.fjgmateu.microservices.order.exception.ServiceException;
 
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpHeaders;
@@ -19,13 +19,14 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
  * Created by FJGMATEU
  */
 @ControllerAdvice
-public class PhoneExceptionController extends ResponseEntityExceptionHandler {
+public class OrderExceptionController extends ResponseEntityExceptionHandler {
 
-    public PhoneExceptionController() {
+    public OrderExceptionController() {
         super();
     }
 
     // API
+
     // 400
     @ExceptionHandler({ DataIntegrityViolationException.class })
     public ResponseEntity<Object> handleBadRequest(final DataIntegrityViolationException ex, final WebRequest request) {
@@ -38,6 +39,7 @@ public class PhoneExceptionController extends ResponseEntityExceptionHandler {
         final String bodyOfResponse = "Error general en el servicio:"+ ex.getMessage();
         return handleExceptionInternal(ex, bodyOfResponse, headers, HttpStatus.BAD_REQUEST, request);
     }
+
 
     @Override
     protected ResponseEntity<Object> handleMethodArgumentNotValid(final MethodArgumentNotValidException ex, final HttpHeaders headers, final HttpStatus status, final WebRequest request) {
@@ -60,7 +62,7 @@ public class PhoneExceptionController extends ResponseEntityExceptionHandler {
     @ExceptionHandler({ NullPointerException.class, IllegalArgumentException.class, IllegalStateException.class,ServiceException.class })
     public ResponseEntity<Object> handleInternal(final RuntimeException ex, final WebRequest request) {
         logger.error("500 Status Code", ex);
-        final String bodyOfResponse = "Error general en el servicio";
+        final String bodyOfResponse = "Error general en el servicio:"+ ex.getMessage();
         return handleExceptionInternal(ex, bodyOfResponse, new HttpHeaders(), HttpStatus.INTERNAL_SERVER_ERROR, request);
     }
 
