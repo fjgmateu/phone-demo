@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/eureka-server.iml" filepath="$PROJECT_DIR$/.idea/modules/eureka-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/eureka-server_main.iml" filepath="$PROJECT_DIR$/.idea/modules/eureka-server_main.iml" group="eureka-server" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/eureka-server_test.iml" filepath="$PROJECT_DIR$/.idea/modules/eureka-server_test.iml" group="eureka-server" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/order-service.iml" filepath="$PROJECT_DIR$/.idea/modules/order-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/order-service_main.iml" filepath="$PROJECT_DIR$/.idea/modules/order-service_main.iml" group="order-service" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/order-service_test.iml" filepath="$PROJECT_DIR$/.idea/modules/order-service_test.iml" group="order-service" />

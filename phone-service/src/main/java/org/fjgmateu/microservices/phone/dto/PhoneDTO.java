@@ -12,8 +12,8 @@ import java.util.List;
  * Created by FJGMATEU.
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
-@XmlRootElement(name = "Phone")
-@JsonRootName("Phone")
+@XmlRootElement(name = "phone")
+@JsonRootName("phone")
 public class PhoneDTO {
 
     @JsonProperty("reference")

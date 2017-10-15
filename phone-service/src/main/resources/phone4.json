@@ -1,0 +1,11 @@
+{
+  "phone":
+  {
+    "reference":"ABCD123421"
+    "name":"GALAXY S7 EDGE 32 GB ORO Libre",
+    "description":"El Samsung Galaxy S7 Edge es un móvil Android bueno con procesador de 2300 Mhz e 8-cores que permite ejecutar juegos y aplicaciones pesadas.",
+    "price":740.22,
+	"url_image":"http://masmovil.es/imagenes/samsungS7.jpg"
+  
+  }
+}
