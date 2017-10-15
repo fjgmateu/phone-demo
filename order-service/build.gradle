@@ -10,6 +10,9 @@ targetCompatibility = 1.8
 repositories {
     mavenCentral()
     jcenter()
+    maven { url "http://repo.spring.io/plugins-release" }
+    maven { url "http://repo.spring.io/milestone" }
+    maven { url "https://plugins.gradle.org/m2/" }
     maven { url 'https://repo.spring.io/libs-snapshot' }
 }
 
