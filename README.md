@@ -74,3 +74,5 @@ Los dos servicios tienen tests unitarios de funcionamiento de los reposiorios, m
 
 Las mejoras a realizar sería montar el sistema en un entorno cloud que permita el balanceo de la instanciación dinámica de las imagenes generadas, 
 ya que el despliegue en aws ha sido realizado de manera manual.
+
+Utilización de Swagger para documentación de API.
