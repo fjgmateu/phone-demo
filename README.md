@@ -30,6 +30,20 @@ Este servicio tiene los siguientes endpoints:
 2. GET /phone/{reference}  --> Retorna télefono a través de su referencia
 3. POST /phone   --> Alta de teléfono. Retorna HTTP 201 con Header Location con URI del recurso creado. 
    Los teléfonos dados de alta se encuentra en: https://github.com/fjgmateu/phone-demo/tree/master/phone-service/src/main/resources
+   
+   	
+	 Ejemplo:
+	 ```
+		{
+			"reference":"ABCD123421",
+			"name":"GALAXY S7 EDGE 32 GB ORO Libre",
+			"description":"El Samsung Galaxy S7 Edge es un móvil Android bueno con procesador de 2300 Mhz e 8-cores que permite ejecutar juegos y aplicaciones pesadas.",
+			"price":740.22,
+			"url_image":"http://masmovil.es/imagenes/samsungS7.jpg"
+		}
+
+		```
+
 
 El servicio se encuentra desplegado en instancia aws: http://ec2-52-14-26-165.us-east-2.compute.amazonaws.com:8091
 
@@ -67,7 +81,7 @@ Este servicio tiene los siguientes endpoints:
 			}		
 		]
 	}
-    ```
+		```
 
 El servicio se encuentra desplegado en instancia aws: http://ec2-18-216-43-22.us-east-2.compute.amazonaws.com:8092
 
