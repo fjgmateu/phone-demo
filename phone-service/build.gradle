@@ -72,24 +72,13 @@ dependencies {
 
     testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test'
     testCompile group: 'org.springframework.security', name: 'spring-security-test'
+    testCompile group:  'org.springframework.boot', name:'spring-boot-starter-data-mongodb'
     testCompile group: 'junit', name: 'junit'
 
 
 }
 
 bootRun {
-    systemProperties = System.properties
-    doFirst {
-        def url = "https://raw.githubusercontent.com/fjgmateu/configuration/master/" + rootProject.name + "/" + profile + ".json"
-        //println url
-        def properties = url.toURL().getText()
-        println properties
-        environment 'SPRING_APPLICATION_JSON', properties
-    }
-}
-
-
-test {
     systemProperties = System.properties
     doFirst {
         def url = "https://raw.githubusercontent.com/fjgmateu/configuration/master/" + rootProject.name + "/" + profile + ".json"

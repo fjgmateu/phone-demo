@@ -3,13 +3,16 @@ package org.fjgmateu.microservices.phone.api;
 import org.fjgmateu.microservices.phone.dto.PhoneDTO;
 import org.fjgmateu.microservices.phone.exception.ServiceDataException;
 import org.fjgmateu.microservices.phone.service.IPhoneService;
-import org.fjgmateu.microservices.phone.service.impl.PhoneService;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import javax.ws.rs.Consumes;
+import javax.ws.rs.core.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import javax.ws.rs.Produces;
 import java.net.URI;
 import java.util.List;
 
@@ -27,7 +30,10 @@ public class PhoneController {
     public String home() {
         return "Hello world";
     }
+
+
     @CrossOrigin
+    @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
     @RequestMapping(value = "/phone/{reference}", method = RequestMethod.GET)
     public PhoneDTO find(@PathVariable("reference") String reference) {
         PhoneDTO phone=phoneService.find(reference);
@@ -39,6 +45,7 @@ public class PhoneController {
 
 
     @CrossOrigin
+    @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
     @RequestMapping(value = "/phones", method = RequestMethod.GET)
     public ResponseListWrapper findAll() {
         List<PhoneDTO>  phones= phoneService.findAll();
@@ -49,6 +56,8 @@ public class PhoneController {
     }
 
     @CrossOrigin
+    @Consumes({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
+    @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
     @RequestMapping(value = "/phone", method = RequestMethod.POST)
     public ResponseEntity<?> add(@RequestBody PhoneDTO input)  {
         String reference=phoneService.add(input);

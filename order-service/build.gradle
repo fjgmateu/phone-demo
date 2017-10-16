@@ -90,15 +90,3 @@ bootRun {
     }
 }
 
-
-test {
-    systemProperties = System.properties
-    doFirst {
-        def url = "https://raw.githubusercontent.com/fjgmateu/configuration/master/" + rootProject.name + "/" + profile + ".json"
-
-        //println url
-        def properties = url.toURL().getText()
-        println properties
-        environment 'SPRING_APPLICATION_JSON', properties
-    }
-}

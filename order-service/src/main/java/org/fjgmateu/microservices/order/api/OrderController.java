@@ -9,6 +9,9 @@ import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import javax.ws.rs.Consumes;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
 import java.net.URI;
 import java.util.List;
 
@@ -27,6 +30,7 @@ public class OrderController {
     }
 
     @CrossOrigin
+    @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
     @RequestMapping(value = "/order/{reference}", method = RequestMethod.GET)
     public OrderDTO find(@PathVariable("reference") String reference) {
         OrderDTO order=orderService.find(reference);
@@ -38,6 +42,7 @@ public class OrderController {
 
 
     @CrossOrigin
+    @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
     @RequestMapping(value = "/orders", method = RequestMethod.GET)
     public ResponseListWrapper findAll() {
         List<OrderDTO>  orders= orderService.findAll();
@@ -48,6 +53,8 @@ public class OrderController {
     }
 
     @CrossOrigin
+    @Consumes({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
+    @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
     @RequestMapping(value = "/order", method = RequestMethod.POST)
     public ResponseEntity<?> add(@RequestBody OrderDTO input) {
         String reference=orderService.add(input);

@@ -1,10 +1,9 @@
-package org.fjgmateu.microservices.order.config;
+package org.fjgmateu.microservices.order;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
-import com.fasterxml.jackson.databind.SerializationFeature;
 import com.google.gson.Gson;
 import org.fjgmateu.microservices.order.validator.ValidatorBean;
 import org.modelmapper.ModelMapper;
