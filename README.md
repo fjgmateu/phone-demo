@@ -49,7 +49,25 @@ Este servicio tiene los siguientes endpoints:
 	 - Persistencia en MongoDB la ordencomprueba que todos los 
 	 - Retorno con código HTTP 201 con Header Location con URI del recurso creado. 
 	 
-	 Las ordenes encuentran en: https://github.com/fjgmateu/phone-demo/tree/master/order-service/src/main/resources
+	 Las ordenes se encuentran en: https://github.com/fjgmateu/phone-demo/tree/master/order-service/src/main/resources
+	
+	 Ejemplo:
+	 
+	{    
+		"name":"cliente 2",
+		"surname":"apellido cliente 2",
+		"email":"cliente1@cliente.es",
+		"phone":[{
+				"reference":"ABCD123456"	
+			},{
+			"reference":"ABCD123418"
+			},
+			{
+			"reference":"ABCD123419"
+			}		
+		]
+	}
+
 
 El servicio se encuentra desplegado en instancia aws: http://ec2-18-216-43-22.us-east-2.compute.amazonaws.com:8092
 
@@ -66,7 +84,7 @@ Todas las excepciones son capturadas por el controlador, lanzando el correspondi
      204 --> No se han encontrado datos.
 	 500 --> Error interno del servicio.
 
-###Tests
+### Tests
 
 Los dos servicios tienen tests unitarios de funcionamiento de los reposiorios, mapeo de datos DTO-Entity y funcionamiento del Controller.
 
