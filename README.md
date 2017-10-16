@@ -52,7 +52,7 @@ Este servicio tiene los siguientes endpoints:
 	 Las ordenes se encuentran en: https://github.com/fjgmateu/phone-demo/tree/master/order-service/src/main/resources
 	
 	 Ejemplo:
-	 
+	 ```
 	{    
 		"name":"cliente 2",
 		"surname":"apellido cliente 2",
@@ -67,7 +67,7 @@ Este servicio tiene los siguientes endpoints:
 			}		
 		]
 	}
-
+    ```
 
 El servicio se encuentra desplegado en instancia aws: http://ec2-18-216-43-22.us-east-2.compute.amazonaws.com:8092
 
