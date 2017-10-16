@@ -90,9 +90,9 @@ En la carpeta docker de todos los servicios se encuentra el fichero DockerFile p
 
 El control de excepciones se realiza con un controlador @ControllerAdvice. 
 Todas las excepciones son capturadas por el controlador, lanzando el correspondiente código HTTP asociada al tipo de excepción producida.
- Ejemplos de código HTTP retornados pueden ser: 
-     204 --> No se han encontrado datos.
-	 500 --> Error interno del servicio.
+Ejemplos de código HTTP retornados pueden ser: 
+204 --> No se han encontrado datos.
+500 --> Error interno del servicio.
 
 ### Tests
 
