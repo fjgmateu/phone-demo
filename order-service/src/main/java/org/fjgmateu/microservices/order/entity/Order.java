@@ -35,7 +35,7 @@ public class Order {
     private double price;
 
     @Field("phone")
-    private List<Phone> phones;
+    private List<Phone> phone;
 
     public String getReference() {
         return reference;
@@ -77,12 +77,12 @@ public class Order {
         this.price = price;
     }
 
-    public List<Phone> getPhones() {
-        return phones;
+    public List<Phone> getPhone() {
+        return phone;
     }
 
-    public void setPhones(List<Phone> phones) {
-        this.phones = phones;
+    public void setPhone(List<Phone> phone) {
+        this.phone = phone;
     }
 
     @Override
@@ -93,7 +93,7 @@ public class Order {
                 ", surname='" + surname + '\'' +
                 ", email='" + email + '\'' +
                 ", price=" + price +
-                ", phones=" + phones +
+                ", phone=" + phone +
                 '}';
     }
 }

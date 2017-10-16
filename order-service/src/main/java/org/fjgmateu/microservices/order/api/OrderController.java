@@ -39,12 +39,12 @@ public class OrderController {
 
     @CrossOrigin
     @RequestMapping(value = "/orders", method = RequestMethod.GET)
-    public List<OrderDTO> findAll() {
+    public ResponseListWrapper findAll() {
         List<OrderDTO>  orders= orderService.findAll();
         if (CollectionUtils.isEmpty(orders)){
             throw new ServiceDataException("No se han encontrado datos");
         }
-        return orders;
+        return new ResponseListWrapper(orders);
     }
 
     @CrossOrigin

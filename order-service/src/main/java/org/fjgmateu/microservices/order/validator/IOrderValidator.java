@@ -1,6 +1,9 @@
 package org.fjgmateu.microservices.order.validator;
 
 import org.fjgmateu.microservices.order.dto.OrderDTO;
+import org.fjgmateu.microservices.order.dto.PhoneDTO;
+
+import java.util.List;
 
 
 /**
@@ -8,5 +11,5 @@ import org.fjgmateu.microservices.order.dto.OrderDTO;
  */
 public interface IOrderValidator {
 
-    public void checkOrder(final OrderDTO input);
+    public List<PhoneDTO> checkOrder(final OrderDTO input);
 }

@@ -60,9 +60,9 @@ public class OrderService implements IOrderService {
 
     public String add(OrderDTO input) {
         logger.info("OrderService.add, input: " + input);
-        orderValidator.checkOrder(input);
+        input.setPhone(orderValidator.checkOrder(input));
         Order order=modelMapper.map(input, Order.class);
-        order.setPrice(input.getPhones().stream().mapToDouble(p -> p.getPrice()).sum());
+        order.setPrice(input.getPhone().stream().mapToDouble(p -> p.getPrice()).sum());
         orderRepository.save(order);
         logger.info("Orden creada, reference: " + order.getReference()+", precio total:"+order.getPrice());
         return order.getReference();

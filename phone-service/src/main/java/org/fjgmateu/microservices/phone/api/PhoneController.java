@@ -40,12 +40,12 @@ public class PhoneController {
 
     @CrossOrigin
     @RequestMapping(value = "/phones", method = RequestMethod.GET)
-    public List<PhoneDTO> findAll() {
+    public ResponseListWrapper findAll() {
         List<PhoneDTO>  phones= phoneService.findAll();
         if (CollectionUtils.isEmpty(phones)){
             throw new ServiceDataException("No se han encontrado datos");
         }
-        return phones;
+        return new ResponseListWrapper(phones);
     }
 
     @CrossOrigin

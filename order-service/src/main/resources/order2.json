@@ -1,0 +1,14 @@
+{    
+    "name":"cliente 2",
+    "surname":"apellido cliente 2",
+    "email":"cliente1@cliente.es",
+	"phone":[{
+			"reference":"ABCD123456"	
+		},{
+		"reference":"ABCD123418"
+		},
+		{
+		"reference":"ABCD123419"
+		}		
+	]
+}

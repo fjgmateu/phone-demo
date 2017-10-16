@@ -3,6 +3,7 @@ package org.fjgmateu.microservices.order.client.impl;
 
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.fjgmateu.microservices.order.client.IPhoneServiceClient;
+import org.fjgmateu.microservices.order.client.response.PhoneResponseWrapper;
 import org.fjgmateu.microservices.order.dto.PhoneDTO;
 import org.fjgmateu.microservices.order.exception.ServiceClientException;
 import org.slf4j.Logger;
@@ -40,19 +41,17 @@ public class PhoneServiceClient implements IPhoneServiceClient{
 
         List<PhoneDTO> phones = null;
         try {
-            PhoneDTO[] response=restTemplate.getForObject(
-                    endPointPhoneFindAll, PhoneDTO[].class);
+            PhoneResponseWrapper response=restTemplate.getForObject(
+                    endPointPhoneFindAll, PhoneResponseWrapper.class);
             if (response==null){
                 throw new ServiceClientException("No existen teléfonos en el catálogo");
             }
 
-            phones= Arrays.asList(response);
-            if (CollectionUtils.isEmpty(phones)){
+
+            if (CollectionUtils.isEmpty(response.getPhone())){
                 throw new ServiceClientException("No existen teléfonos en el catálogo");
             }
-
-
-
+            phones=response.getPhone();
         } catch (Exception e) {
             String message= ExceptionUtils.getMessage(e);
             logger.error("ERROR, CAUSE: {}", message);

@@ -32,9 +32,13 @@ public class OrderDTO {
     @NotEmpty
     private String email;
 
+    @JsonProperty("price")
+    private double price;
+
+
     @JsonProperty("phone")
     @NotEmpty
-    private List<PhoneDTO> phones;
+    private List<PhoneDTO> phone;
 
     public String getReference() {
         return reference;
@@ -68,14 +72,21 @@ public class OrderDTO {
         this.email = email;
     }
 
-    public List<PhoneDTO> getPhones() {
-        return phones;
+    public double getPrice() {
+        return price;
     }
 
-    public void setPhones(List<PhoneDTO> phones) {
-        this.phones = phones;
+    public void setPrice(double price) {
+        this.price = price;
     }
 
+    public List<PhoneDTO> getPhone() {
+        return phone;
+    }
+
+    public void setPhone(List<PhoneDTO> phone) {
+        this.phone = phone;
+    }
 
     @Override
     public String toString() {
@@ -84,7 +95,8 @@ public class OrderDTO {
                 ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
                 ", email='" + email + '\'' +
-                ", phones=" + phones +
+                ", price=" + price +
+                ", phone=" + phone +
                 '}';
     }
 }

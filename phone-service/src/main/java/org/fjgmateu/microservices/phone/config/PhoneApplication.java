@@ -30,7 +30,7 @@ public class PhoneApplication {
     public MappingJackson2HttpMessageConverter mappingJackson2HttpMessageConverter() {
         MappingJackson2HttpMessageConverter converter = new MappingJackson2HttpMessageConverter();
         ObjectMapper objectMapper = new ObjectMapper();
-        objectMapper.enable(SerializationFeature.WRAP_ROOT_VALUE);
+        //objectMapper.enable(SerializationFeature.WRAP_ROOT_VALUE);
         objectMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
         converter.setObjectMapper(objectMapper);
         return converter;

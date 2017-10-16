@@ -3,13 +3,13 @@ server:
 
 eureka:
   instance:
-    leaseRenewalIntervalInSeconds: 1
-    leaseExpirationDurationInSeconds: 2
+    leaseRenewalIntervalInSeconds: 2
+    leaseExpirationDurationInSeconds: 4
   client:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka
     healthcheck:
-      enabled: true
+      enabled: false
     lease:
       duration: 5
 

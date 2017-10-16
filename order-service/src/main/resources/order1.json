@@ -1,0 +1,9 @@
+{    
+    "name":"cliente 1",
+    "surname":"apellido cliente 1",
+    "email":"cliente1@cliente.es",
+	"phone":[{
+			"reference":"ABCD123456"	
+		}
+	]
+}

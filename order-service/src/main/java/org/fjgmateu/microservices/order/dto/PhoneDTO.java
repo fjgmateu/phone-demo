@@ -11,8 +11,6 @@ import javax.xml.bind.annotation.XmlRootElement;
  * Created by FJGMATEU.
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
-@XmlRootElement(name = "phone")
-@JsonRootName("phone")
 public class PhoneDTO {
 
     @JsonProperty("reference")
@@ -20,7 +18,6 @@ public class PhoneDTO {
     private String reference;
 
     @JsonProperty("name")
-    @NotEmpty
     private String name;
 
     @JsonProperty("description")

@@ -1,0 +1,12 @@
+{    
+    "name":"cliente 4",
+	"phone":[{
+			"reference":"XXXXXXXX"	
+		},{
+		"reference":"ABCD123418"
+		},
+		{
+		"reference":"ABCD123419"
+		}		
+	]
+}

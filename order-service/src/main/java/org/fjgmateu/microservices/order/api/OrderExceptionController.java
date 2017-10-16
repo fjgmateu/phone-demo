@@ -1,9 +1,11 @@
 package org.fjgmateu.microservices.order.api;
 
 
+import org.fjgmateu.microservices.order.exception.ServiceClientException;
 import org.fjgmateu.microservices.order.exception.ServiceDataException;
 import org.fjgmateu.microservices.order.exception.ServiceException;
 
+import org.fjgmateu.microservices.order.exception.ServiceValidationException;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -27,7 +29,18 @@ public class OrderExceptionController extends ResponseEntityExceptionHandler {
 
     // API
 
+
+
+
     // 400
+
+    @ExceptionHandler({ ServiceValidationException.class })
+    public ResponseEntity<Object> handleBadRequest(final ServiceValidationException ex, final WebRequest request) {
+        final String bodyOfResponse = ex.getMessage();
+        return handleExceptionInternal(ex, bodyOfResponse, new HttpHeaders(), HttpStatus.BAD_REQUEST, request);
+    }
+
+
     @ExceptionHandler({ DataIntegrityViolationException.class })
     public ResponseEntity<Object> handleBadRequest(final DataIntegrityViolationException ex, final WebRequest request) {
         final String bodyOfResponse = "Error general en el servicio:"+ ex.getMessage();
@@ -59,7 +72,14 @@ public class OrderExceptionController extends ResponseEntityExceptionHandler {
 
 
     // 500
-    @ExceptionHandler({ NullPointerException.class, IllegalArgumentException.class, IllegalStateException.class,ServiceException.class })
+    @ExceptionHandler({ ServiceClientException.class })
+    public ResponseEntity<Object> handleInternalClientException(final RuntimeException ex, final WebRequest request) {
+        logger.error("500 Status Code", ex);
+        final String bodyOfResponse = "Error general en el servicio cliente:"+ ex.getMessage();
+        return handleExceptionInternal(ex, bodyOfResponse, new HttpHeaders(), HttpStatus.INTERNAL_SERVER_ERROR, request);
+    }
+
+    @ExceptionHandler({ NullPointerException.class, IllegalArgumentException.class, IllegalStateException.class })
     public ResponseEntity<Object> handleInternal(final RuntimeException ex, final WebRequest request) {
         logger.error("500 Status Code", ex);
         final String bodyOfResponse = "Error general en el servicio:"+ ex.getMessage();
