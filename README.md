@@ -41,7 +41,7 @@ Este servicio tiene los siguientes endpoints:
 			"price":740.22,
 			"url_image":"http://masmovil.es/imagenes/samsungS7.jpg"
 		}
-	   ```
+	
 El servicio se encuentra desplegado en instancia aws: http://ec2-52-14-26-165.us-east-2.compute.amazonaws.com:8091
 
 
@@ -78,7 +78,6 @@ Este servicio tiene los siguientes endpoints:
 			}		
 		]
 	}
-		```
 
 El servicio se encuentra desplegado en instancia aws: http://ec2-18-216-43-22.us-east-2.compute.amazonaws.com:8092
 
