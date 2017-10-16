@@ -92,8 +92,11 @@ El control de excepciones se realiza con un controlador @ControllerAdvice.
 Todas las excepciones son capturadas por el controlador, lanzando el correspondiente código HTTP asociada al tipo de excepción producida.
 
 1.Ejemplos de código HTTP retornados pueden ser: 
+
 1.1 204 --> No se han encontrado datos.
+
 1.2 500 --> Error interno del servicio.
+
 
 ### Tests
 
