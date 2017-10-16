@@ -57,7 +57,7 @@ Este servicio tiene los siguientes endpoints:
 	 - Validación de input de entrada. (Datos obligatorios)
 	 - Invocación a servicio phone-service para obtener teléfonos existentes.
 	 - Comprobación de existencia de todos los teléfonos recibidos en la orden (todos deben existir), obtención de precios y suma de los mismos.
-	 - Persistencia en MongoDB la ordencomprueba que todos los 
+	 - Persistencia en MongoDB de la orden.
 	 - Retorno con código HTTP 201 con Header Location con URI del recurso creado. 
 	 
 	 Las ordenes se encuentran en: https://github.com/fjgmateu/phone-demo/tree/master/order-service/src/main/resources
