@@ -1,11 +1,7 @@
 {
-  "phone":
-  {
-    "reference":"ABCD123456"
+    "reference":"ABCD123456",
     "name":"BQ M5",
     "description":"Móvil BQ de alta calidad",
     "price":223.45,
 	"url_image":"http://masmovil.es/imagenes/bqM5.jpg"
-  
-  }
 }

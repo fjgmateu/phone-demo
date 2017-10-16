@@ -34,7 +34,6 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
  */
 
 @RunWith(SpringRunner.class)
-//@WebMvcTest(PhoneController.class)
 @SpringBootTest(classes = {PhoneApplication.class})
 public class PhoneControllerTest {
 

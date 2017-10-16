@@ -1,11 +1,7 @@
 {
-  "phone":
-  {
-    "reference":"ABCD123418"
+    "reference":"ABCD123418",
     "name":"iphone 7",
     "description":"Móvil Apple de última generación",
     "price":660.29,
 	"url_image":"http://masmovil.es/imagenes/iphone7.jpg"
-  
-  }
 }

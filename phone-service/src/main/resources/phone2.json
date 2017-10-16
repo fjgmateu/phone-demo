@@ -1,11 +1,7 @@
 {
-  "phone":
-  {
-    "reference":"ABCD123457"
+    "reference":"ABCD123457",
     "name":"Motorola G3",
     "description":"Móvil Motorola de alta calidad y acuñatico",
     "price":293.95,
 	"url_image":"http://masmovil.es/imagenes/motoG3.jpg"
-  
-  }
 }

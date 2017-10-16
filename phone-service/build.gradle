@@ -14,24 +14,36 @@ repositories {
     maven { url "http://repo.spring.io/milestone" }
     maven { url "https://plugins.gradle.org/m2/" }
     maven { url 'https://repo.spring.io/libs-snapshot' }
+    maven { url 'http://repo.spring.io/snapshot' }
 }
 
 buildscript {
 
-
-	
     ext {
         springBootVersion = '1.5.2.RELEASE'
+        springCloudVersion = "Dalston.SR1"
     }
 
     repositories {
         mavenCentral()
 	    jcenter()
+        maven { url "http://repo.spring.io/plugins-release" }
+        maven { url "http://repo.spring.io/milestone" }
+        maven { url "https://plugins.gradle.org/m2/" }
     }
 
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath("io.spring.gradle:spring-io-plugin:0.0.4.RELEASE")
         classpath("io.spring.gradle:dependency-management-plugin:0.6.0.RELEASE")
+    }
+}
+
+
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.boot:spring-boot-dependencies:${springBootVersion}"
+        mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
     }
 }
 
@@ -49,11 +61,13 @@ dependencies {
     compile group: 'org.springframework', name: 'spring-core'
     compile("org.springframework.boot:spring-boot-starter-web:${springBootVersion}")
     compile('org.springframework.cloud:spring-cloud-starter-eureka')
-    compile group: 'javax.ws.rs', name: 'javax.ws.rs-api', version: '2.0.1'
+    compile("org.springframework.boot:spring-boot-starter-actuator")
     compile("org.apache.commons:commons-lang3:3.4")
     compile("com.google.code.gson:gson:2.6.2")
     compile group: 'log4j', name: 'log4j', version: '1.2.17'
     compile group: 'org.modelmapper', name: 'modelmapper', version: '1.1.0'
+    compile group: 'org.glassfish.jersey.core', name: 'jersey-common', version: '2.26'
+
     compile("org.springframework.boot:spring-boot-starter-data-mongodb")
 
     testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test'
