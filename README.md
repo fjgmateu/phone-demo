@@ -81,6 +81,12 @@ Este servicio tiene los siguientes endpoints:
 
 El servicio se encuentra desplegado en instancia aws: http://ec2-18-216-43-22.us-east-2.compute.amazonaws.com:8092
 
+### Servicio eureka-server
+
+Servidor registro Eureka. Los dos servicios se registran en el servidor Eureka, pudiendose llamar de manera transparente mediante Eureka a través del nombre del servicio.
+
+El servidor se encuentra desplegado en: http://ec2-52-14-26-165.us-east-2.compute.amazonaws.com:8761/
+
 ### Docker
 
 En la carpeta docker de todos los servicios se encuentra el fichero DockerFile para la generación de la imagen correspondiente de cada uno de ellos.
